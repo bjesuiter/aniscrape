@@ -5,7 +5,7 @@ export default function App({ Component }: AppProps) {
   return (
     <>
       <Head>
-        <title>deno_fresh_template</title>
+        <title>AniScrape</title>
       </Head>
       <Component />
     </>
