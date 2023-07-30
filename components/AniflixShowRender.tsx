@@ -1,3 +1,4 @@
+import { UiEpisode } from "@/src/types.ts";
 import { AniflixImage } from "./AniflixImage.tsx";
 
 export function AniflixShowRender(
@@ -5,11 +6,7 @@ export function AniflixShowRender(
     name: string;
     description: string;
     cover: string;
-    episodes: {
-      seasonNumber: number;
-      episodeNumber: number;
-      name: string;
-    }[];
+    episodes: UiEpisode[];
   },
 ) {
   return (

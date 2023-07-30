@@ -2,7 +2,8 @@ import { RouteContext } from "$fresh/server.ts";
 import { Layout } from "../components/Layout.tsx";
 import ClearCacheButton from "../islands/clear-cache-button.tsx";
 import { AniflixShowRender } from "@/components/AniflixShowRender.tsx";
-import { AniflixShow, fetchShow } from "@/src/aniflix_api.ts";
+import { AniflixShow, fetchEpisode, fetchShow } from "@/src/aniflix_api.ts";
+import { UiEpisode } from '@/src/types.ts';
 
 export default async function Home(req: Request, ctx: RouteContext) {
   const searchParams = new URL(req.url).searchParams;
@@ -11,25 +12,32 @@ export default async function Home(req: Request, ctx: RouteContext) {
   let showJson;
   let showData: AniflixShow | undefined;
 
-  const episodes: {
-    seasonNumber: number;
-    episodeNumber: number;
-    name: string;
-  }[] = [];
+  const episodes: UiEpisode[] = [];
 
   if (url !== "") {
     const targetUrl = new URL(url);
-    const showId = targetUrl.pathname.split("/").pop();
-    if (!showId) throw new Error("Invalid URL");
-    showData = await fetchShow([showId]);
+    const showName = targetUrl.pathname.split("/").pop();
+    if (!showName) throw new Error("Invalid URL");
+    showData = await fetchShow([showName]);
 
     for (const season of showData.seasons) {
       for (const episode of season.episodes) {
-        episodes.push({
+        const episodeData = await fetchEpisode([{
+          showName,
           seasonNumber: season.number,
           episodeNumber: episode.number,
-          name: episode.name,
-        });
+        }]);
+
+        for (const stream of episodeData.streams) {
+          episodes.push({
+            seasonNumber: season.number,
+            episodeNumber: episode.number,
+            name: episode.name,
+            hosterName: stream.hoster.name,
+            hosterId: stream.hoster.id,
+            videoUrl: stream.link,
+          });
+        }
       }
     }
   }

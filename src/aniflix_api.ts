@@ -69,14 +69,14 @@ const AniflixEpisode = z.object({
 });
 
 export function fetchEpisodeUncached(
-  { showName, season, episode }: {
+  { showName, seasonNumber, episodeNumber }: {
     showName: string;
-    season: number;
-    episode: number;
+    seasonNumber: number;
+    episodeNumber: number;
   },
 ) {
   const url =
-    `${aniflixApi}episode/show/${showName}/season/${season}/episode/${episode}`;
+    `${aniflixApi}episode/show/${showName}/season/${seasonNumber}/episode/${episodeNumber}`;
 
   const res = fetch(url).then((fetchResponse) => fetchResponse.json());
   return AniflixEpisode.parse(res);
