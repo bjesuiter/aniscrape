@@ -68,7 +68,7 @@ const AniflixEpisode = z.object({
   })),
 });
 
-export function fetchEpisodeUncached(
+export async function fetchEpisodeUncached(
   { showName, seasonNumber, episodeNumber }: {
     showName: string;
     seasonNumber: number;
@@ -78,7 +78,7 @@ export function fetchEpisodeUncached(
   const url =
     `${aniflixApi}episode/show/${showName}/season/${seasonNumber}/episode/${episodeNumber}`;
 
-  const res = fetch(url).then((fetchResponse) => fetchResponse.json());
+  const res = await fetch(url).then((fetchResponse) => fetchResponse.json());
   return AniflixEpisode.parse(res);
 }
 
