@@ -5,7 +5,7 @@ export const targetApiCache = new DenoKvStorageEngine({
 });
 
 export const fetchTargetAPI = curryCache(
-  async (targetUrl: string): Promise<any> => {
+  async (targetUrl: string): Promise<unknown> => {
     const url = new URL(targetUrl);
     const apiUrl = url.origin + "/api" + url.pathname + url.search;
 
