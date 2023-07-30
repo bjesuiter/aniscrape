@@ -1,12 +1,8 @@
 import { RouteContext } from "$fresh/server.ts";
-import { useSignal } from "@preact/signals";
 import { Layout } from "../components/Layout.tsx";
 import ClearCacheButton from "../islands/clear-cache-button.tsx";
-import { fetchTargetAPI } from "@/src/scraper/fetch_target_api.ts";
-import {
-  AniflixShow,
-  AniflixShowRender,
-} from "@/components/AniflixShowRender.tsx";
+import { AniflixShowRender } from "@/components/AniflixShowRender.tsx";
+import { AniflixShow, fetchShow } from "@/src/aniflix_api.ts";
 
 export default async function Home(req: Request, ctx: RouteContext) {
   const searchParams = new URL(req.url).searchParams;
@@ -16,9 +12,10 @@ export default async function Home(req: Request, ctx: RouteContext) {
   let showData: AniflixShow | undefined;
 
   if (url !== "") {
-    showJson = await fetchTargetAPI([url]);
-    showData = AniflixShow.parse(showJson);
-    // console.log(showJson);
+    const targetUrl = new URL(url);
+    const showId = targetUrl.pathname.split("/").pop();
+    if (!showId) throw new Error("Invalid URL");
+    showData = await fetchShow([showId]);
   }
 
   // const count = useSignal(3);
