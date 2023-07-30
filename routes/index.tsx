@@ -11,8 +11,13 @@ export default function Home() {
         id="search row"
         class="flex flex-row justify-center align-center p-6"
       >
-        <label for="base-url-input">Series URL</label>
-        <input id="base-url-input" type="text" class="mx-4"></input>
+        <label for="base-url-input" class="self-center">Series URL</label>
+        <input
+          id="base-url-input"
+          type="text"
+          class="mx-4 p-1 text-slate-100 dark:text-slate-900"
+        >
+        </input>
       </section>
     </Layout>
   );
