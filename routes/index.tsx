@@ -15,7 +15,7 @@ export default function Home() {
         <input
           id="base-url-input"
           type="text"
-          class="mx-4 p-1 text-slate-100 dark:text-slate-900"
+          class="mx-4 p-1 text-slate-100 dark:text-slate-900 w-[500px]"
         >
         </input>
       </section>
