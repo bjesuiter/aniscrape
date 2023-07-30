@@ -5,12 +5,17 @@ export const AniflixShow = z.object({
   name: z.string(),
   description: z.string(),
   cover_landscape: z.string(),
+  cover_landscape_original: z.string(),
 });
 
 export type AniflixShow = z.infer<typeof AniflixShow>;
 
 export function AniflixShowRender(
-  { name, description, cover_landscape }: AniflixShow,
+  { name, description, cover }: {
+    name: string;
+    description: string;
+    cover: string;
+  },
 ) {
   return (
     <section
@@ -20,7 +25,7 @@ export function AniflixShowRender(
       <h1>{name}</h1>
       <p>{description}</p>
       <AniflixImage
-        filename={cover_landscape}
+        filename={cover}
       />
     </section>
   );

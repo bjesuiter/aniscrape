@@ -52,7 +52,7 @@ export default async function Home(req: Request, ctx: RouteContext) {
         <AniflixShowRender
           name={showData.name}
           description={showData.description}
-          cover_landscape={showData.cover_landscape}
+          cover={showData.cover_landscape_original}
         />
       )}
     </Layout>
