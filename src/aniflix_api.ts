@@ -1,7 +1,11 @@
 import { z } from "zod";
+import { curryCache, DenoKvStorageEngine } from "curry_cache";
 
 const aniflixBase = "https://www.aniflix.cc/";
 const aniflixApi = "https://www.aniflix.cc/api/";
+export const showCache = new DenoKvStorageEngine({
+  name: "anflix-show-store",
+});
 
 export const AniflixShow = z.object({
   name: z.string(),
@@ -17,13 +21,22 @@ export type AniflixShow = z.infer<typeof AniflixShow>;
  * @param showId
  * @returns
  */
-export async function fetchShow(showId: string): Promise<AniflixShow> {
-  const res = await fetch(aniflixApi + "show/" + showId).then((fetchResponse) =>
-    fetchResponse.json()
+export async function fetchShowUncached(showId: string): Promise<AniflixShow> {
+  const url = aniflixApi + "show/" + showId;
+  console.debug(
+    `fetchShowUncached function was called with show-id "${showId}" which produces url "${url}"! (Should only happen after cache clear or with different url!)`,
   );
+  const res = await fetch(url).then((fetchResponse) => fetchResponse.json());
 
   return AniflixShow.parse(res);
 }
+
+export const fetchShow = curryCache(
+  fetchShowUncached,
+  {
+    storageEngine: showCache,
+  },
+);
 
 export function getStorageUrl(filename: string) {
   return aniflixBase + "storage/" + filename;
