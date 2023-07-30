@@ -17,7 +17,7 @@
     "@twind/preset-tailwind/": "https://esm.sh/v129/*@twind/preset-tailwind@1.1.4/",
     "@twind/preset-typography": "https://esm.sh/v129/*@twind/preset-typography@1.0.7",
     "cheerio": "https://esm.sh/v129/*cheerio@0.22.0",
-    "curry_cache": "https://deno.land/x/curry_cache@0.4.0/mod.ts", 
+    "curry_cache": "https://deno.land/x/curry_cache@0.5.0-rc.2/mod.ts",
     "zod": "https://deno.land/x/zod@v3.21.4/mod.ts"
   },
   "scopes": {
