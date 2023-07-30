@@ -7,6 +7,10 @@ export const showCache = new DenoKvStorageEngine({
   name: "anflix-show-store",
 });
 
+export const episodeCache = new DenoKvStorageEngine({
+  name: "anflix-episode-store",
+});
+
 export const AniflixShow = z.object({
   name: z.string(),
   description: z.string(),
@@ -49,3 +53,38 @@ export const fetchShow = curryCache(
 export function getStorageUrl(filename: string) {
   return aniflixBase + "storage/" + filename;
 }
+
+const AniflixEpisode = z.object({
+  id: z.number(),
+  season_id: z.number(),
+  name: z.string(),
+  streams: z.array(z.object({
+    id: z.number(),
+    link: z.string(),
+    hoster: z.object({
+      id: z.number(),
+      name: z.string(),
+    }),
+  })),
+});
+
+export function fetchEpisodeUncached(
+  { showName, season, episode }: {
+    showName: string;
+    season: number;
+    episode: number;
+  },
+) {
+  const url =
+    `${aniflixApi}episode/show/${showName}/season/${season}/episode/${episode}`;
+
+  const res = fetch(url).then((fetchResponse) => fetchResponse.json());
+  return AniflixEpisode.parse(res);
+}
+
+export const fetchEpisode = curryCache(
+  fetchEpisodeUncached,
+  {
+    storageEngine: episodeCache,
+  },
+);
