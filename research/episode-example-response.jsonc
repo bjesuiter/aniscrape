@@ -1,0 +1,490 @@
+// 20230730135851
+// https://www.aniflix.cc/api/episode/show/log-horizon/season/1/episode/1
+
+{
+    "id": 6781,
+    "name": "Die Apokalypse",
+    "number": 1,
+    "season_id": 382,
+    "created_at": "2019-05-12 00:52:20",
+    "updated_at": "2021-10-02 21:03:28",
+    "deleted_at": null,
+    "voted": null,
+    "previous": "",
+    "next": 2,
+    "avgVotes": "1.0000",
+    "hasReports": 0,
+    "streams": [
+      {
+        "id": 396580,
+        "streamable_type": "App\\Episode",
+        "streamable_id": 6781,
+        "hoster_id": 21,
+        "user_id": 18363,
+        "link": "https://streamtape.com/e/vYwDvW3Dzxh41pz",
+        "lang": "SUB",
+        "created_at": "2021-10-02 21:03:28",
+        "updated_at": "2021-10-02 21:03:28",
+        "deleted_at": null,
+        "hoster": {
+          "id": 21,
+          "name": "Streamtape",
+          "logo": null,
+          "created_at": "2020-05-18 19:09:42",
+          "updated_at": "2022-08-01 17:18:40",
+          "deleted_at": null,
+          "preferred": 8
+        }
+      },
+      {
+        "id": 396581,
+        "streamable_type": "App\\Episode",
+        "streamable_id": 6781,
+        "hoster_id": 20,
+        "user_id": 18363,
+        "link": "https://dood.ws/e/im78pv9uwqi84mf04iuwxhvxxd4w3whq",
+        "lang": "SUB",
+        "created_at": "2021-10-02 21:03:28",
+        "updated_at": "2021-12-23 23:01:58",
+        "deleted_at": null,
+        "hoster": {
+          "id": 20,
+          "name": "Dooood",
+          "logo": null,
+          "created_at": "2020-04-15 11:43:08",
+          "updated_at": "2023-04-29 21:33:32",
+          "deleted_at": null,
+          "preferred": 11
+        }
+      },
+      {
+        "id": 396582,
+        "streamable_type": "App\\Episode",
+        "streamable_id": 6781,
+        "hoster_id": 33,
+        "user_id": 18363,
+        "link": "https://streamlare.com/e/oLvgezwVv1NDbp8E",
+        "lang": "SUB",
+        "created_at": "2021-10-02 21:03:28",
+        "updated_at": "2021-10-02 21:03:28",
+        "deleted_at": null,
+        "hoster": {
+          "id": 33,
+          "name": "StreamLare",
+          "logo": null,
+          "created_at": "2021-09-21 17:31:05",
+          "updated_at": "2022-08-01 17:18:43",
+          "deleted_at": null,
+          "preferred": 7
+        }
+      }
+    ],
+    "comments": [
+      {
+        "id": 46304,
+        "text": "für mich einer der besten anime, erst recht in dem genre ist er in den top3.",
+        "user_id": 7946,
+        "commentable_type": "App\\Episode",
+        "commentable_id": 6781,
+        "created_at": "2022-03-05 00:48:13",
+        "updated_at": "2022-03-05 00:48:13",
+        "deleted_at": null,
+        "voted": null,
+        "user": {
+          "id": 7946,
+          "name": "PL4TINUM",
+          "avatar": "4nLrg58lfmsZ2pr84OR3BeiV6DbDahcD36DCzUt0.jpeg-2",
+          "banned_until": null,
+          "created_at": "2020-03-31 00:43:27",
+          "verified": 1,
+          "last_ip": null,
+          "updated_at": "2022-03-02 02:40:34",
+          "banreason": null,
+          "about_me": null,
+          "groups": [
+            
+          ]
+        },
+        "votes": [
+          
+        ],
+        "comments": [
+          
+        ]
+      }
+    ],
+    "votes": [
+      {
+        "id": 588,
+        "voteable_type": "App\\Episode",
+        "voteable_id": 6781,
+        "user_id": 13,
+        "value": 1,
+        "created_at": "2019-05-12 18:13:22",
+        "updated_at": "2019-05-12 18:13:22",
+        "deleted_at": null
+      },
+      {
+        "id": 12823,
+        "voteable_type": "App\\Episode",
+        "voteable_id": 6781,
+        "user_id": 2079,
+        "value": 1,
+        "created_at": "2019-07-28 10:30:29",
+        "updated_at": "2019-07-28 10:30:29",
+        "deleted_at": null
+      },
+      {
+        "id": 19391,
+        "voteable_type": "App\\Episode",
+        "voteable_id": 6781,
+        "user_id": 1708,
+        "value": 1,
+        "created_at": "2019-08-12 23:10:52",
+        "updated_at": "2019-08-12 23:10:52",
+        "deleted_at": null
+      },
+      {
+        "id": 27635,
+        "voteable_type": "App\\Episode",
+        "voteable_id": 6781,
+        "user_id": 476,
+        "value": 1,
+        "created_at": "2019-08-31 20:40:29",
+        "updated_at": "2019-08-31 20:40:29",
+        "deleted_at": null
+      },
+      {
+        "id": 36115,
+        "voteable_type": "App\\Episode",
+        "voteable_id": 6781,
+        "user_id": 3289,
+        "value": 1,
+        "created_at": "2019-09-21 15:12:52",
+        "updated_at": "2019-09-21 15:12:52",
+        "deleted_at": null
+      },
+      {
+        "id": 40072,
+        "voteable_type": "App\\Episode",
+        "voteable_id": 6781,
+        "user_id": 43,
+        "value": 1,
+        "created_at": "2019-09-29 19:12:34",
+        "updated_at": "2019-09-29 19:12:34",
+        "deleted_at": null
+      },
+      {
+        "id": 61009,
+        "voteable_type": "App\\Episode",
+        "voteable_id": 6781,
+        "user_id": 1062,
+        "value": 1,
+        "created_at": "2019-11-03 15:20:38",
+        "updated_at": "2019-11-03 15:20:38",
+        "deleted_at": null
+      },
+      {
+        "id": 61924,
+        "voteable_type": "App\\Episode",
+        "voteable_id": 6781,
+        "user_id": 1168,
+        "value": 1,
+        "created_at": "2019-11-05 01:02:38",
+        "updated_at": "2019-11-05 01:02:38",
+        "deleted_at": null
+      },
+      {
+        "id": 66526,
+        "voteable_type": "App\\Episode",
+        "voteable_id": 6781,
+        "user_id": 1736,
+        "value": 1,
+        "created_at": "2019-11-13 22:51:50",
+        "updated_at": "2019-11-13 22:51:50",
+        "deleted_at": null
+      },
+      {
+        "id": 77931,
+        "voteable_type": "App\\Episode",
+        "voteable_id": 6781,
+        "user_id": 4434,
+        "value": 1,
+        "created_at": "2019-12-05 12:11:41",
+        "updated_at": "2019-12-05 12:11:41",
+        "deleted_at": null
+      },
+      {
+        "id": 81757,
+        "voteable_type": "App\\Episode",
+        "voteable_id": 6781,
+        "user_id": 2617,
+        "value": 1,
+        "created_at": "2019-12-12 15:24:01",
+        "updated_at": "2019-12-12 15:24:01",
+        "deleted_at": null
+      },
+      {
+        "id": 88188,
+        "voteable_type": "App\\Episode",
+        "voteable_id": 6781,
+        "user_id": 767,
+        "value": 1,
+        "created_at": "2019-12-22 18:03:51",
+        "updated_at": "2019-12-22 18:03:51",
+        "deleted_at": null
+      },
+      {
+        "id": 95403,
+        "voteable_type": "App\\Episode",
+        "voteable_id": 6781,
+        "user_id": 1447,
+        "value": 1,
+        "created_at": "2020-01-04 20:05:29",
+        "updated_at": "2020-01-04 20:05:29",
+        "deleted_at": null
+      },
+      {
+        "id": 108941,
+        "voteable_type": "App\\Episode",
+        "voteable_id": 6781,
+        "user_id": 1446,
+        "value": 1,
+        "created_at": "2020-01-26 02:38:15",
+        "updated_at": "2020-01-26 02:38:15",
+        "deleted_at": null
+      },
+      {
+        "id": 110751,
+        "voteable_type": "App\\Episode",
+        "voteable_id": 6781,
+        "user_id": 356,
+        "value": 1,
+        "created_at": "2020-01-29 00:33:53",
+        "updated_at": "2020-01-29 00:33:53",
+        "deleted_at": null
+      },
+      {
+        "id": 111758,
+        "voteable_type": "App\\Episode",
+        "voteable_id": 6781,
+        "user_id": 1444,
+        "value": 1,
+        "created_at": "2020-01-31 18:29:23",
+        "updated_at": "2020-01-31 18:29:23",
+        "deleted_at": null
+      },
+      {
+        "id": 141222,
+        "voteable_type": "App\\Episode",
+        "voteable_id": 6781,
+        "user_id": 5157,
+        "value": 1,
+        "created_at": "2020-04-03 17:00:57",
+        "updated_at": "2020-04-03 17:00:57",
+        "deleted_at": null
+      },
+      {
+        "id": 144555,
+        "voteable_type": "App\\Episode",
+        "voteable_id": 6781,
+        "user_id": 8235,
+        "value": 1,
+        "created_at": "2020-04-07 19:30:15",
+        "updated_at": "2020-04-07 19:30:15",
+        "deleted_at": null
+      },
+      {
+        "id": 152554,
+        "voteable_type": "App\\Episode",
+        "voteable_id": 6781,
+        "user_id": 5264,
+        "value": 1,
+        "created_at": "2020-04-19 09:04:25",
+        "updated_at": "2020-04-19 09:04:25",
+        "deleted_at": null
+      },
+      {
+        "id": 178837,
+        "voteable_type": "App\\Episode",
+        "voteable_id": 6781,
+        "user_id": 5218,
+        "value": 1,
+        "created_at": "2020-06-12 21:51:20",
+        "updated_at": "2020-06-12 21:51:20",
+        "deleted_at": null
+      },
+      {
+        "id": 185489,
+        "voteable_type": "App\\Episode",
+        "voteable_id": 6781,
+        "user_id": 7951,
+        "value": 1,
+        "created_at": "2020-06-28 13:00:50",
+        "updated_at": "2020-06-28 13:00:50",
+        "deleted_at": null
+      },
+      {
+        "id": 193931,
+        "voteable_type": "App\\Episode",
+        "voteable_id": 6781,
+        "user_id": 12350,
+        "value": 1,
+        "created_at": "2020-07-12 01:35:39",
+        "updated_at": "2020-07-12 01:35:39",
+        "deleted_at": null
+      },
+      {
+        "id": 217573,
+        "voteable_type": "App\\Episode",
+        "voteable_id": 6781,
+        "user_id": 3905,
+        "value": 1,
+        "created_at": "2020-08-22 20:58:10",
+        "updated_at": "2020-08-22 20:58:10",
+        "deleted_at": null
+      },
+      {
+        "id": 267273,
+        "voteable_type": "App\\Episode",
+        "voteable_id": 6781,
+        "user_id": 552,
+        "value": 1,
+        "created_at": "2021-01-06 05:29:57",
+        "updated_at": "2021-01-06 05:29:57",
+        "deleted_at": null
+      },
+      {
+        "id": 269241,
+        "voteable_type": "App\\Episode",
+        "voteable_id": 6781,
+        "user_id": 3293,
+        "value": 1,
+        "created_at": "2021-01-12 15:57:45",
+        "updated_at": "2021-01-12 15:57:45",
+        "deleted_at": null
+      },
+      {
+        "id": 272545,
+        "voteable_type": "App\\Episode",
+        "voteable_id": 6781,
+        "user_id": 11419,
+        "value": 1,
+        "created_at": "2021-01-23 01:08:55",
+        "updated_at": "2021-01-23 01:08:55",
+        "deleted_at": null
+      },
+      {
+        "id": 294133,
+        "voteable_type": "App\\Episode",
+        "voteable_id": 6781,
+        "user_id": 20641,
+        "value": 1,
+        "created_at": "2021-02-26 12:08:38",
+        "updated_at": "2021-02-26 12:08:38",
+        "deleted_at": null
+      },
+      {
+        "id": 409961,
+        "voteable_type": "App\\Episode",
+        "voteable_id": 6781,
+        "user_id": 20617,
+        "value": 1,
+        "created_at": "2021-06-08 03:04:01",
+        "updated_at": "2021-06-08 03:04:01",
+        "deleted_at": null
+      },
+      {
+        "id": 430949,
+        "voteable_type": "App\\Episode",
+        "voteable_id": 6781,
+        "user_id": 26668,
+        "value": 1,
+        "created_at": "2021-07-24 16:21:08",
+        "updated_at": "2021-07-24 16:21:08",
+        "deleted_at": null
+      },
+      {
+        "id": 466033,
+        "voteable_type": "App\\Episode",
+        "voteable_id": 6781,
+        "user_id": 29074,
+        "value": 1,
+        "created_at": "2021-10-25 19:48:41",
+        "updated_at": "2021-10-25 19:48:41",
+        "deleted_at": null
+      },
+      {
+        "id": 489974,
+        "voteable_type": "App\\Episode",
+        "voteable_id": 6781,
+        "user_id": 28456,
+        "value": 1,
+        "created_at": "2022-01-09 13:01:13",
+        "updated_at": "2022-01-09 13:01:13",
+        "deleted_at": null
+      },
+      {
+        "id": 507403,
+        "voteable_type": "App\\Episode",
+        "voteable_id": 6781,
+        "user_id": 7946,
+        "value": 1,
+        "created_at": "2022-03-05 00:45:46",
+        "updated_at": "2022-03-05 00:45:46",
+        "deleted_at": null
+      },
+      {
+        "id": 516203,
+        "voteable_type": "App\\Episode",
+        "voteable_id": 6781,
+        "user_id": 44804,
+        "value": 1,
+        "created_at": "2022-04-14 22:43:20",
+        "updated_at": "2022-04-14 22:43:20",
+        "deleted_at": null
+      },
+      {
+        "id": 561879,
+        "voteable_type": "App\\Episode",
+        "voteable_id": 6781,
+        "user_id": 38826,
+        "value": 1,
+        "created_at": "2023-02-18 07:34:59",
+        "updated_at": "2023-02-18 07:34:59",
+        "deleted_at": null
+      }
+    ],
+    "season": {
+      "id": 382,
+      "number": 1,
+      "show_id": 282,
+      "type": "sub",
+      "created_at": "2019-05-12 00:52:20",
+      "updated_at": "2021-02-07 16:33:20",
+      "deleted_at": null,
+      "original_release": 2013,
+      "period": 2,
+      "length": 25,
+      "show": {
+        "id": 282,
+        "name": "Log Horizon",
+        "name_alt": "Log Horizon (2014), Log Horizon Season 2, Log Horizon Second Season, Log Horizon 2nd Season, Log Horizon: Entaku Houkai, Log Horizon: Destruction of the Round Table, Log Horizon: Fall of the Round Table, Log Horizon: Season 3",
+        "url": "log-horizon",
+        "description": "Es ist schon einige Jahre her, dass er sich bei Elder Tale registriert hat. Doch als sich Shiroe endlich wieder dazu durchringen kann, sich anzumelden, muss er mit Schrecken feststellen, dass sich nicht nur sein Spiegelbild zu einem Halb-Alv verwandelt hat: Für ein Online RPG fühlt es sich alles viel zu real an. Zu allem Ãœberfluss kann er sich auch nicht mehr ausloggen. Zusammen mit seinem alten Freund Naotsugu, ein Ritter, und Akatsuki, einer Assassinin, die er noch aus seiner aktiven Zockerzeit kennt, macht sich Shiroe auf die Suche nach jemanden, der dieses Problem lösen kann …",
+        "cover_landscape": "1557615140-2.jpg",
+        "cover_landscape_original": "bZH1TLnBsIv6HwHmsSgSKc1goTLp1sQHtjjeJR1i.png",
+        "cover_portrait": "1557615140-1.jpg",
+        "cover_portrait_original": null,
+        "visible_since": null,
+        "original_release": 2013,
+        "created_at": "2019-05-12 00:52:20",
+        "updated_at": "2021-10-02 21:23:45",
+        "deleted_at": null,
+        "rating": 3.9699999999999998,
+        "howManyAbos": 315,
+        "seasonCount": 3,
+        "airing": 0
+      }
+    }
+  }
