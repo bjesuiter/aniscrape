@@ -9,18 +9,32 @@ export function AniflixShowRender(
     episodes: UiEpisode[];
   },
 ) {
-  // group by hoster
-  const byHoster = new Map<string, UiEpisode[]>();
+  const bySeason = new Map<number, UiEpisode[]>();
 
   for (const episode of episodes) {
-    const hosterName = episode.hosterName;
-    if (!byHoster.has(hosterName)) {
-      byHoster.set(hosterName, []);
+    const seasonNumber = episode.seasonNumber;
+    if (!bySeason.has(seasonNumber)) {
+      bySeason.set(seasonNumber, []);
     }
-    byHoster.get(hosterName)?.push(episode);
+    bySeason.get(seasonNumber)?.push(episode);
   }
 
-  const byHosterArray = Array.from(byHoster.entries());
+  const bySeasonArray = Array.from(bySeason.entries());
+
+  const byHosterArray = (episodes: UiEpisode[]) => {
+    // group by hoster
+    const byHoster = new Map<string, UiEpisode[]>();
+
+    for (const episode of episodes) {
+      const hosterName = episode.hosterName;
+      if (!byHoster.has(hosterName)) {
+        byHoster.set(hosterName, []);
+      }
+      byHoster.get(hosterName)?.push(episode);
+    }
+
+    return Array.from(byHoster.entries());
+  };
 
   return (
     <section
@@ -55,12 +69,18 @@ export function AniflixShowRender(
       </table> */
       }
 
-      {byHosterArray.map(([key, val]) => (
+      {bySeasonArray.map(([seasonKey, val]) => (
         <div>
-          <h2 class="text-2xl font-bold my-6">{key}</h2>
-          <pre class="bg-slate-200 dark:bg-slate-900 p-4">
-            Hello World!
-          </pre>
+          <h1 class="text-3xl font-bold my-6">Season {seasonKey}</h1>
+
+          {byHosterArray(val).map(([hosterKey, val]) => (
+            <>
+              <h2 class="text-2xl font-bold mt-6 mb-3">{hosterKey} - Season {seasonKey}</h2>
+              <pre class="bg-slate-200 dark:bg-slate-900 p-4">
+              {val.map((episode) => <p>{episode.videoUrl}</p>)}
+              </pre>
+            </>
+          ))}
         </div>
       ))}
     </section>
