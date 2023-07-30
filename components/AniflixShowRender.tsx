@@ -1,11 +1,15 @@
-import { z } from "zod";
 import { AniflixImage } from "./AniflixImage.tsx";
 
 export function AniflixShowRender(
-  { name, description, cover }: {
+  { name, description, cover, episodes }: {
     name: string;
     description: string;
     cover: string;
+    episodes: {
+      seasonNumber: number;
+      episodeNumber: number;
+      name: string;
+    }[];
   },
 ) {
   return (
@@ -18,6 +22,25 @@ export function AniflixShowRender(
       <AniflixImage
         filename={cover}
       />
+
+      <table class="my-6">
+        <thead>
+          <tr class="text-left">
+            <th>Season</th>
+            <th>Episode</th>
+            <th>Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          {episodes.map((episode) => (
+            <tr>
+              <td>Season {episode.seasonNumber}</td>
+              <td>Episode {episode.episodeNumber}</td>
+              <td>{episode.name}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </section>
   );
 }

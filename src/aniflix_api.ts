@@ -12,7 +12,15 @@ export const AniflixShow = z.object({
   description: z.string(),
   cover_landscape: z.string(),
   cover_landscape_original: z.string(),
-  seasons: z.array(z.object({})),
+  seasons: z.array(z.object({
+    id: z.number(),
+    number: z.number(),
+    episodes: z.array(z.object({
+      id: z.number(),
+      number: z.number(),
+      name: z.string(),
+    })),
+  })),
 });
 export type AniflixShow = z.infer<typeof AniflixShow>;
 

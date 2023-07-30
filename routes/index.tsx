@@ -11,11 +11,27 @@ export default async function Home(req: Request, ctx: RouteContext) {
   let showJson;
   let showData: AniflixShow | undefined;
 
+  const episodes: {
+    seasonNumber: number;
+    episodeNumber: number;
+    name: string;
+  }[] = [];
+
   if (url !== "") {
     const targetUrl = new URL(url);
     const showId = targetUrl.pathname.split("/").pop();
     if (!showId) throw new Error("Invalid URL");
     showData = await fetchShow([showId]);
+
+    for (const season of showData.seasons) {
+      for (const episode of season.episodes) {
+        episodes.push({
+          seasonNumber: season.number,
+          episodeNumber: episode.number,
+          name: episode.name,
+        });
+      }
+    }
   }
 
   // const count = useSignal(3);
@@ -50,6 +66,7 @@ export default async function Home(req: Request, ctx: RouteContext) {
           name={showData.name}
           description={showData.description}
           cover={showData.cover_landscape_original}
+          episodes={episodes}
         />
       )}
     </Layout>
