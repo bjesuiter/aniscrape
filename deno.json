@@ -3,6 +3,7 @@
   "tasks": {
     "start": "deno run -A --watch=static/,routes/ dev.ts",
     "update": "deno run -A -r https://fresh.deno.dev/update .",
+    "cache": "deno cache main.ts dev.ts",
     "esm:add": "deno run -A https://esm.sh/v129 add",
     "esm:update": "deno run -A https://esm.sh/v129 update",
     "esm:remove": "deno run -A https://esm.sh/v129 remove"
@@ -14,7 +15,7 @@
         "recommended"
       ]
     }
-  },   
+  },
   "compilerOptions": {
     "jsx": "react-jsx",
     "jsxImportSource": "preact"
