@@ -1,7 +1,6 @@
 import { z } from "zod";
 import { AniflixImage } from "./AniflixImage.tsx";
 
-
 export function AniflixShowRender(
   { name, description, cover }: {
     name: string;
@@ -12,7 +11,7 @@ export function AniflixShowRender(
   return (
     <section
       id="show-data"
-      class="flex flex-col justify-center align-center p-6"
+      class="flex flex-col justify-center align-center p-6 max-w-screen-md mx-auto"
     >
       <h1>{name}</h1>
       <p>{description}</p>
