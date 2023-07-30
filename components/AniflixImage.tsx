@@ -1,8 +1,10 @@
-export function AniflixImage({ filename }: { filename: string }) {
-  const baseURL = "https://www.aniflix.cc/storage/";
-  const imgURL = baseURL + filename;
+import { getStorageUrl } from "@/src/aniflix_api.ts";
 
+export function AniflixImage({ filename }: { filename: string }) {
   return (
-    <img src={imgURL} alt="The cover image of the loaded series from Aniflix" />
+    <img
+      src={getStorageUrl(filename)}
+      alt="The cover image of the loaded series from Aniflix"
+    />
   );
 }
