@@ -1,5 +1,11 @@
 # AniScrape
 
+## Test With 
+
+1. Log-Horizon (default): https://aniscrape.deno.dev/?url=https%3A%2F%2Fwww.aniflix.cc%2Fshow%2Flog-horizon
+2. Overlord: https://aniscrape.deno.dev/?url=https%3A%2F%2Fwww.aniflix.cc%2Fshow%2Foverlord
+   With Sub/Dub
+
 ## Repo Log 
 
 ### Cloned from Deno Fresh template 
