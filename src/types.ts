@@ -6,3 +6,9 @@ export type UiEpisode = {
   hosterId: number;
   videoUrl: string;
 };
+
+export type EpisodeRequest = {
+  showName: string;
+  seasonNumber: number;
+  episodeNumber: number;
+};

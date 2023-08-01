@@ -78,8 +78,30 @@ export async function fetchEpisodeUncached(
   const url =
     `${aniflixApi}episode/show/${showName}/season/${seasonNumber}/episode/${episodeNumber}`;
 
-  const res = await fetch(url).then((fetchResponse) => fetchResponse.json());
-  return AniflixEpisode.parse(res);
+  const res = await fetch(url);
+
+  if (res.status === 503) {
+    console.error(`Aniflix API returned 503 (Temporary unavailable) for: 
+    Request: ${url}
+    `);
+  }
+
+  if (!res.headers.get(`Content-Type`)?.includes("application/json")) {
+    console.error(
+      `Aniflix Api returned something other instead of json for request (probably HTML): 
+    Request: ${url}
+    
+    Got Body: 
+
+    ${await res.text()}
+    `,
+    );
+
+    return;
+  }
+
+  const resJson = await res.json();
+  return AniflixEpisode.parse(resJson);
 }
 
 export const fetchEpisode = curryCache(
