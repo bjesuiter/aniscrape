@@ -3,7 +3,7 @@ import { Layout } from "../components/Layout.tsx";
 import ClearCacheButton from "../islands/clear-cache-button.tsx";
 import { AniflixShowRender } from "@/components/AniflixShowRender.tsx";
 import { AniflixShow, fetchEpisode, fetchShow } from "@/src/aniflix_api.ts";
-import { UiEpisode } from '@/src/types.ts';
+import { UiEpisode } from "@/src/types.ts";
 
 export default async function Home(req: Request, ctx: RouteContext) {
   const searchParams = new URL(req.url).searchParams;
@@ -16,8 +16,26 @@ export default async function Home(req: Request, ctx: RouteContext) {
 
   if (url !== "") {
     const targetUrl = new URL(url);
-    const showName = targetUrl.pathname.split("/").pop();
-    if (!showName) throw new Error("Invalid URL");
+    const pathSegments = targetUrl.pathname.split("/");
+
+    const indexOfShow = pathSegments.findIndex((e) => e === "show");
+    if (indexOfShow === -1) {
+      return new Response("", {
+        status: 400,
+        statusText:
+          "Your url does not contain the word 'show'. This probably meany you've not copied an aniflix url of a show page or one of it's sub pages!",
+      });
+    }
+
+    const showName = pathSegments[indexOfShow + 1];
+    if (!showName) {
+      return new Response("", {
+        status: 400,
+        statusText:
+          "Your url does not contain a show name after /show/... . This probably meany you've not copied an aniflix url of a show page or one of it's sub pages!",
+      });
+    }
+
     showData = await fetchShow([showName]);
 
     for (const season of showData.seasons) {
