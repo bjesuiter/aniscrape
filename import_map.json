@@ -19,7 +19,8 @@
     "@twind/preset-tailwind": "https://esm.sh/v129/*@twind/preset-tailwind@1.1.4",
     "@twind/preset-tailwind/": "https://esm.sh/v129/*@twind/preset-tailwind@1.1.4/",
     "@twind/preset-typography": "https://esm.sh/v129/*@twind/preset-typography@1.0.7",
-    "cheerio": "https://esm.sh/v129/*cheerio@0.22.0"
+    "cheerio": "https://esm.sh/v129/*cheerio@0.22.0",
+    "p-map": "https://esm.sh/v129/p-map@6.0.0"
   },
   "scopes": {
     "https://esm.sh/v129/": {
