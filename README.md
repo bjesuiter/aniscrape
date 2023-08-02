@@ -6,6 +6,11 @@
 2. Overlord: https://aniscrape.deno.dev/?url=https%3A%2F%2Fwww.aniflix.cc%2Fshow%2Foverlord
    With Sub/Dub
 
+## Todos 
+
+- build support for sub/dub differentiation 
+- use preact signals in islands for sharing state 
+
 ## Repo Log 
 
 ### Cloned from Deno Fresh template 
