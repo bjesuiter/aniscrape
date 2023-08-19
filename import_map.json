@@ -21,7 +21,8 @@
     "@twind/preset-typography": "https://esm.sh/v129/*@twind/preset-typography@1.0.7",
     "cheerio": "https://esm.sh/v129/*cheerio@0.22.0",
     "ky": "https://esm.sh/v129/ky@0.33.3",
-    "p-map": "https://esm.sh/v129/p-map@6.0.0"
+    "p-map": "https://esm.sh/v129/p-map@6.0.0",
+    "p-throttle": "https://esm.sh/v129/p-throttle@5.1.0"
   },
   "scopes": {
     "https://esm.sh/v129/": {
