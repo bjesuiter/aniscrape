@@ -33,7 +33,3 @@ for (const season of show.seasons) {
 }
 
 console.timeEnd("fetch-complete");
-
-/**
- * RUN 2 - probably in cache and not cold-start
- */
