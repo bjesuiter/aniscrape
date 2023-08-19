@@ -8,7 +8,8 @@
     "esm:update": "deno run -A https://esm.sh/v129 update",
     "esm:remove": "deno run -A https://esm.sh/v129 remove",
     "bench-1": "deno run -A --unstable ./research/aniflix-api-limits.serial.ts",
-    "bench-2": "deno run -A --unstable ./research/fetch-episode-counter.ts"
+    "bench-2": "deno run -A --unstable ./research/fetch-episode-counter.ts",
+    "bench-3": "deno run -A --unstable ./research/parallel-fetches.ts"
   },
   "lint": {
     "rules": {
