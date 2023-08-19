@@ -9,7 +9,8 @@ import * as $3 from "./routes/deno-kv/index.tsx";
 import * as $4 from "./routes/greet/[name].tsx";
 import * as $5 from "./routes/index.tsx";
 import * as $6 from "./routes/page2.tsx";
-import * as $$0 from "./islands/clear-cache-button.tsx";
+import * as $$0 from "./islands/aniflix-episode-tanstack.tsx";
+import * as $$1 from "./islands/clear-cache-button.tsx";
 
 const manifest = {
   routes: {
@@ -22,7 +23,8 @@ const manifest = {
     "./routes/page2.tsx": $6,
   },
   islands: {
-    "./islands/clear-cache-button.tsx": $$0,
+    "./islands/aniflix-episode-tanstack.tsx": $$0,
+    "./islands/clear-cache-button.tsx": $$1,
   },
   baseUrl: import.meta.url,
 };
