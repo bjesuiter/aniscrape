@@ -3,11 +3,18 @@ import { HTTPError, TimeoutError } from "ky";
 import pThrottle from "p-throttle";
 
 const showName = "log-horizon";
-const concurrency = 2;
+const limitPerSek = 4;
 const now = Date.now();
 
+type EpisodeRequest = {
+  reqId: number;
+  showName: string;
+  seasonNumber: number;
+  episodeNumber: number;
+};
+
 const runThrottled = pThrottle({
-  limit: 2,
+  limit: limitPerSek,
   interval: 1000,
 });
 
@@ -17,10 +24,9 @@ const throttledEpisodeFetch = runThrottled(
 
     try {
       const episodeData = await fetchEpisodeUncached(episodeRequest);
+      console.log(`fetch-${episodeRequest.reqId}: ${secDiff}s`);
       return { ...episodeData, request: episodeRequest };
     } catch (error) {
-      overallErrorCounter++;
-      goodRequestsSinceLastError = 0;
       if (error instanceof HTTPError && error.response.status === 503) {
         // const errorJson = await error.response.json();
         console.error(`fetch-${episodeRequest.reqId}: Unavailable (503)`);
@@ -36,15 +42,6 @@ const throttledEpisodeFetch = runThrottled(
     return `fetch-${episodeRequest.reqId}: ${secDiff}s`;
   },
 );
-
-const episodeRequests = [];
-
-type EpisodeRequest = {
-  reqId: number;
-  showName: string;
-  seasonNumber: number;
-  episodeNumber: number;
-};
 
 for (let i = 0; i < 100; i++) {
   const reqData = {

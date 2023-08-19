@@ -1,0 +1,179 @@
+# 04_throttle_parallel_fetches.results.md
+
+## RUN 1 - 2 per sek
+
+- seems to work flawless
+
+```
+fetch-0: 0s
+fetch-1: 0s
+fetch-2: 1s
+fetch-3: 1s
+fetch-4: 2s
+fetch-5: 2s
+fetch-6: 3s
+fetch-7: 3s
+fetch-8: 4s
+fetch-9: 4s
+fetch-10: 5s
+fetch-11: 5s
+fetch-12: 6s
+fetch-13: 6s
+fetch-14: 7s
+fetch-15: 7s
+fetch-16: 8s
+fetch-17: 8s
+fetch-18: 9s
+fetch-19: 9s
+fetch-20: 10s
+fetch-21: 10s
+fetch-22: 11s
+fetch-23: 11s
+fetch-24: 12s
+fetch-25: 12s
+fetch-26: 13s
+fetch-27: 13s
+fetch-28: 14s
+fetch-29: 14s
+fetch-30: 15s
+fetch-31: 15s
+fetch-32: 16s
+fetch-33: 16s
+fetch-34: 17s
+fetch-35: 17s
+fetch-36: 18s
+fetch-37: 18s
+fetch-38: 19s
+fetch-39: 19s
+fetch-40: 20s
+fetch-41: 20s
+fetch-42: 21s
+fetch-43: 21s
+fetch-44: 22s
+fetch-45: 22s
+fetch-46: 23s
+fetch-47: 23s
+fetch-48: 24s
+fetch-49: 24s
+fetch-50: 25s
+fetch-51: 25s
+fetch-52: 26s
+fetch-53: 26s
+fetch-54: 27s
+fetch-55: 27s
+fetch-56: 28s
+fetch-57: 28s
+fetch-58: 29s
+fetch-59: 29s
+```
+
+## RUN 3 - 3 per sek
+
+- works
+
+```
+fetch-0: 0s
+fetch-1: 0s
+fetch-2: 0s
+fetch-3: 1s
+fetch-4: 1s
+fetch-5: 1s
+fetch-6: 2s
+fetch-7: 2s
+fetch-8: 2s
+fetch-9: 3s
+fetch-10: 3s
+fetch-11: 3s
+fetch-12: 4s
+fetch-13: 4s
+fetch-14: 4s
+fetch-15: 5s
+fetch-16: 5s
+fetch-17: 5s
+fetch-18: 6s
+fetch-19: 6s
+fetch-20: 6s
+fetch-21: 7s
+fetch-22: 7s
+fetch-23: 7s
+fetch-24: 8s
+fetch-25: 8s
+fetch-26: 8s
+fetch-27: 9s
+fetch-28: 9s
+fetch-29: 9s
+fetch-30: 10s
+fetch-31: 11s
+fetch-32: 11s
+fetch-33: 11s
+fetch-34: 12s
+fetch-35: 12s
+fetch-36: 12s
+fetch-37: 13s
+fetch-38: 13s
+fetch-39: 13s
+fetch-40: 14s
+fetch-41: 14s
+fetch-42: 14s
+fetch-43: 15s
+fetch-44: 15s
+fetch-45: 15s
+fetch-46: 16s
+fetch-47: 16s
+fetch-48: 16s
+fetch-49: 17s
+fetch-50: 17s
+fetch-51: 17s
+fetch-52: 18s
+fetch-53: 18s
+fetch-54: 18s
+fetch-55: 19s
+fetch-56: 19s
+fetch-57: 19s
+fetch-58: 20s
+fetch-59: 20s
+fetch-60: 20s
+fetch-61: 21s
+fetch-62: 21s
+fetch-63: 21s
+fetch-64: 22s
+fetch-65: 22s
+fetch-66: 22s
+fetch-67: 23s
+fetch-68: 23s
+fetch-69: 23s
+fetch-70: 24s
+fetch-71: 24s
+fetch-72: 24s
+fetch-73: 25s
+fetch-74: 25s
+fetch-75: 25s
+fetch-76: 26s
+fetch-77: 26s
+fetch-78: 26s
+fetch-79: 27s
+fetch-80: 27s
+fetch-81: 27s
+fetch-82: 28s
+fetch-83: 28s
+fetch-84: 28s
+fetch-85: 29s
+fetch-86: 30s
+fetch-87: 30s
+fetch-88: 30s
+fetch-89: 30s
+fetch-90: 30s
+fetch-91: 31s
+fetch-92: 31s
+fetch-93: 31s
+fetch-94: 32s
+fetch-95: 32s
+fetch-96: 32s
+fetch-97: 33s
+fetch-98: 33s
+fetch-99: 34s
+```
+
+## RUN 4 - 4 per sek
+
+- Test is flawed, problem: now the calls will be made in series again, not in parallel
