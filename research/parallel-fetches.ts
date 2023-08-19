@@ -2,6 +2,7 @@ import { fetchEpisodeUncached } from "@/src/aniflix_api.ts";
 import pMap from "p-map";
 
 const showName = "log-horizon";
+const concurrency = 1;
 
 const episodeRequests = [];
 
@@ -36,7 +37,7 @@ const mapper = async (episodeRequest: EpisodeRequest) => {
 // rawEpisode === contains data for all streaming providers
 // UiEpisode === the episode on exactly one provider
 const rawEpisodes = await pMap(episodeRequests, mapper, {
-  concurrency: 1,
+  concurrency,
 });
 
 // Caution: overwrites console history due to big output!
