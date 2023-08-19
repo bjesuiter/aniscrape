@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { curryCache, DenoKvStorageEngine } from "curry_cache";
+import ky from "ky";
 
 const aniflixBase = "https://www.aniflix.cc/";
 const aniflixApi = "https://www.aniflix.cc/api/";
@@ -33,14 +34,31 @@ export type AniflixShow = z.infer<typeof AniflixShow>;
  * @param showId
  * @returns
  */
-export async function fetchShowUncached(showId: string): Promise<AniflixShow> {
+export async function fetchShowUncached(
+  showId: string,
+): Promise<AniflixShow | undefined> {
   const url = aniflixApi + "show/" + showId;
   console.debug(
     `fetchShowUncached function was called with show-id "${showId}" which produces url "${url}"! (Should only happen after cache clear or with different url!)`,
   );
-  const res = await fetch(url).then((fetchResponse) => fetchResponse.json());
 
-  return AniflixShow.parse(res);
+  try {
+    const res = await ky.get(url, { timeout: 30000 }).json();
+    return AniflixShow.parse(res);
+  } catch (error) {
+    if (error.name === "HTTPError") {
+      // const errorJson = await error.response.json();
+      console.error("HTTP Error:", error);
+    }
+    if (error.name === "TimeoutError") {
+      // const errorJson = await error.response.json();
+      console.error("Timeout Error:", error);
+    }
+
+    console.error(error);
+  }
+
+  return undefined;
 }
 
 export const fetchShow = curryCache(
@@ -78,8 +96,22 @@ export async function fetchEpisodeUncached(
   const url =
     `${aniflixApi}episode/show/${showName}/season/${seasonNumber}/episode/${episodeNumber}`;
 
-  const res = await fetch(url).then((fetchResponse) => fetchResponse.json());
-  return AniflixEpisode.parse(res);
+  try {
+    const res = await ky.get(url).json();
+    return AniflixEpisode.parse(res);
+  } catch (error) {
+    if (error.name === "HTTPError") {
+      // const errorJson = await error.response.json();
+      console.error("HTTP Error:", error);
+    }
+    if (error.name === "TimeoutError") {
+      // const errorJson = await error.response.json();
+      console.error("Timeout Error:", error);
+    }
+    console.error(error);
+  }
+
+  return undefined;
 }
 
 export const fetchEpisode = curryCache(

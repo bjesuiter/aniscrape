@@ -17,6 +17,10 @@ for (const season of show.seasons) {
       episodeNumber: episode.number,
     });
 
+    if (episodeData === undefined) {
+      console.error(`episode-${episode.id}: response undefined!`);
+    }
+
     console.timeEnd(`fetching-episode-${episode.id}`);
 
     // for (const stream of episodeData.streams) {
