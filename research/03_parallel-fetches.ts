@@ -4,7 +4,6 @@ import pMap from "p-map";
 
 const showName = "log-horizon";
 const concurrency = 2;
-
 const episodeRequests = [];
 
 type EpisodeRequest = {
