@@ -43,7 +43,7 @@ const mapper = async (episodeRequest: EpisodeRequest) => {
     goodRequestsUntilNextError = 0;
     if (error instanceof HTTPError && error.response.status === 503) {
       // const errorJson = await error.response.json();
-      console.error(`fetch-${episodeRequest.reqId}: Unavailable (503)`, error);
+      console.error(`fetch-${episodeRequest.reqId}: Unavailable (503)`);
     }
     if (error instanceof TimeoutError) {
       // const errorJson = await error.response.json();
