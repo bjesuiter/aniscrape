@@ -86,6 +86,11 @@ const AniflixEpisode = z.object({
   })),
 });
 
+/**
+ * @param param0
+ * @returns
+ * @throws TimeoutError, HTTPError
+ */
 export async function fetchEpisodeUncached(
   { showName, seasonNumber, episodeNumber }: {
     showName: string;
@@ -96,22 +101,8 @@ export async function fetchEpisodeUncached(
   const url =
     `${aniflixApi}episode/show/${showName}/season/${seasonNumber}/episode/${episodeNumber}`;
 
-  try {
-    const res = await ky.get(url).json();
-    return AniflixEpisode.parse(res);
-  } catch (error) {
-    if (error.name === "HTTPError") {
-      // const errorJson = await error.response.json();
-      console.error("HTTP Error:", error);
-    }
-    if (error.name === "TimeoutError") {
-      // const errorJson = await error.response.json();
-      console.error("Timeout Error:", error);
-    }
-    console.error(error);
-  }
-
-  return undefined;
+  const res = await ky.get(url).json();
+  return AniflixEpisode.parse(res);
 }
 
 export const fetchEpisode = curryCache(

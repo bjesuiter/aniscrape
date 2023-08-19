@@ -1,8 +1,9 @@
 import { fetchEpisodeUncached } from "@/src/aniflix_api.ts";
+import { HTTPError, TimeoutError } from "ky";
 import pMap from "p-map";
 
 const showName = "log-horizon";
-const concurrency = 1;
+const concurrency = 2;
 
 const episodeRequests = [];
 
@@ -24,13 +25,34 @@ for (let i = 0; i < 100; i++) {
 
 // console.log(episodeRequests);
 
+let overallErrorCounter = 0;
+let goodRequestsUntilNextError = 0;
+
 // assemble async mapper for episode requests
 const mapper = async (episodeRequest: EpisodeRequest) => {
   console.log(`fetching ${episodeRequest.reqId} ...`);
   console.time(`fetch-${episodeRequest.reqId}`);
-  const episodeData = await fetchEpisodeUncached(episodeRequest);
+
+  goodRequestsUntilNextError++;
+
+  try {
+    const episodeData = await fetchEpisodeUncached(episodeRequest);
+    return { ...episodeData, request: episodeRequest };
+  } catch (error) {
+    overallErrorCounter++;
+    goodRequestsUntilNextError = 0;
+    if (error instanceof HTTPError && error.response.status === 503) {
+      // const errorJson = await error.response.json();
+      console.error(`fetch-${episodeRequest.reqId}: Unavailable (503)`, error);
+    }
+    if (error instanceof TimeoutError) {
+      // const errorJson = await error.response.json();
+      console.error("Timeout Error:", error);
+    }
+    console.error(error);
+  }
+
   console.timeEnd(`fetch-${episodeRequest.reqId}`);
-  return { ...episodeData, request: episodeRequest };
 };
 
 // split one rawEpisode into n UiEpisodes, depending on how many streaming services are available

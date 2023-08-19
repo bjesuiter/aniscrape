@@ -210,3 +210,12 @@ fetch-99: 454ms
 ```
 
 ## RUN 2 - concurrency 2
+
+- returns regular errors, mostly 503 - Service unavailable 
+
+=> Optimize Test to get more info about the conditions for this 503
+
+## RUN 3 - more detailed logging and compact error handling
+
+
+
