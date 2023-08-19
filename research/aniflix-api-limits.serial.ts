@@ -8,6 +8,11 @@ console.time("fetch-show");
 const show = await fetchShowUncached(showName);
 console.timeEnd("fetch-show");
 
+if (!show) {
+  console.error(`Show "${showName}": Response undefined `);
+  Deno.exit(1);
+}
+
 for (const season of show.seasons) {
   for (const episode of season.episodes) {
     console.time(`fetching-episode-${episode.id}`);
