@@ -26,30 +26,32 @@ for (let i = 0; i < 100; i++) {
 // console.log(episodeRequests);
 
 let overallErrorCounter = 0;
-let goodRequestsUntilNextError = 0;
+let goodRequestsSinceLastError = 0;
 
 // assemble async mapper for episode requests
 const mapper = async (episodeRequest: EpisodeRequest) => {
-  console.log(`fetching ${episodeRequest.reqId} ...`);
+  console.log(`fetching ${episodeRequest.reqId} ...
+  errorCount: ${overallErrorCounter}
+  goodRequestsSinceLastError: ${goodRequestsSinceLastError}`);
   console.time(`fetch-${episodeRequest.reqId}`);
 
-  goodRequestsUntilNextError++;
+  goodRequestsSinceLastError++;
 
   try {
     const episodeData = await fetchEpisodeUncached(episodeRequest);
     return { ...episodeData, request: episodeRequest };
   } catch (error) {
     overallErrorCounter++;
-    goodRequestsUntilNextError = 0;
+    goodRequestsSinceLastError = 0;
     if (error instanceof HTTPError && error.response.status === 503) {
       // const errorJson = await error.response.json();
       console.error(`fetch-${episodeRequest.reqId}: Unavailable (503)`);
-    }
-    if (error instanceof TimeoutError) {
+    } else if (error instanceof TimeoutError) {
       // const errorJson = await error.response.json();
       console.error("Timeout Error:", error);
+    } else {
+      console.error(error);
     }
-    console.error(error);
   }
 
   console.timeEnd(`fetch-${episodeRequest.reqId}`);
