@@ -4,6 +4,7 @@ import ClearCacheButton from "../islands/clear-cache-button.tsx";
 import { AniflixShowRender } from "@/components/AniflixShowRender.tsx";
 import { AniflixShow, fetchEpisode, fetchShow } from "@/src/aniflix_api.ts";
 import { UiEpisode } from "@/src/types.ts";
+import { SSEDebug } from "@/islands/sse-debug.tsx";
 
 export default async function Home(req: Request, ctx: RouteContext) {
   const searchParams = new URL(req.url).searchParams;
@@ -86,6 +87,8 @@ export default async function Home(req: Request, ctx: RouteContext) {
       </section>
 
       <hr></hr>
+
+      <SSEDebug></SSEDebug>
 
       {showData && (
         <AniflixShowRender

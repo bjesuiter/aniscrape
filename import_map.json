@@ -22,7 +22,9 @@
     "cheerio": "https://esm.sh/v129/*cheerio@0.22.0",
     "ky": "https://esm.sh/v129/ky@0.33.3",
     "p-map": "https://esm.sh/v129/p-map@6.0.0",
-    "p-throttle": "https://esm.sh/v129/p-throttle@5.1.0"
+    "p-throttle": "https://esm.sh/v129/p-throttle@5.1.0",
+    "rx_webstreams": "https://deno.land/x/rx_webstreams@0.8.0/mod.ts",
+    "sse_codec": "https://deno.land/x/sse_codec@0.2.2/mod.ts"
   },
   "scopes": {
     "https://esm.sh/v129/": {
