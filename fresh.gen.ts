@@ -9,7 +9,7 @@ import * as $3 from "./routes/deno-kv/index.tsx";
 import * as $4 from "./routes/greet/[name].tsx";
 import * as $5 from "./routes/index.tsx";
 import * as $6 from "./routes/page2.tsx";
-import * as $7 from "./routes/streaming.tsx";
+import * as $7 from "./routes/streaming/custom.tsx";
 import * as $8 from "./routes/streaming/simple.tsx";
 import * as $$0 from "./islands/aniflix-episode-tanstack.tsx";
 import * as $$1 from "./islands/clear-cache-button.tsx";
@@ -24,7 +24,7 @@ const manifest = {
     "./routes/greet/[name].tsx": $4,
     "./routes/index.tsx": $5,
     "./routes/page2.tsx": $6,
-    "./routes/streaming.tsx": $7,
+    "./routes/streaming/custom.tsx": $7,
     "./routes/streaming/simple.tsx": $8,
   },
   islands: {
