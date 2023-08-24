@@ -10,7 +10,9 @@
     "bench-1": "deno run -A --unstable ./research/01_aniflix-api-limits.serial.ts",
     "bench-2": "deno run -A --unstable ./research/02_fetch-episode-counter.ts",
     "bench-3": "deno run -A --unstable ./research/03_parallel-fetches.ts",
-    "bench-4": "deno run -A --unstable ./research/04_throttle_parallel_fetches.ts"
+    "bench-4": "deno run -A --unstable ./research/04_throttle_parallel_fetches.ts",
+    "build": "deno run -A dev.ts build",
+    "preview": "deno run -A main.ts"
   },
   "lint": {
     "rules": {
@@ -18,11 +20,18 @@
         "fresh",
         "recommended"
       ]
-    }
+    },
+    "exclude": [
+      "_fresh"
+    ]
   },
   "compilerOptions": {
     "jsx": "react-jsx",
     "jsxImportSource": "preact"
   },
-  "importMap": "import_map.json"
+  "fmt": {
+    "exclude": [
+      "_fresh"
+    ]
+  }
 }
