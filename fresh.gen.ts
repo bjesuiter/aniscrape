@@ -10,6 +10,7 @@ import * as $4 from "./routes/greet/[name].tsx";
 import * as $5 from "./routes/index.tsx";
 import * as $6 from "./routes/page2.tsx";
 import * as $7 from "./routes/streaming.tsx";
+import * as $8 from "./routes/streaming/simple.tsx";
 import * as $$0 from "./islands/aniflix-episode-tanstack.tsx";
 import * as $$1 from "./islands/clear-cache-button.tsx";
 import * as $$2 from "./islands/sse-debug.tsx";
@@ -24,6 +25,7 @@ const manifest = {
     "./routes/index.tsx": $5,
     "./routes/page2.tsx": $6,
     "./routes/streaming.tsx": $7,
+    "./routes/streaming/simple.tsx": $8,
   },
   islands: {
     "./islands/aniflix-episode-tanstack.tsx": $$0,
