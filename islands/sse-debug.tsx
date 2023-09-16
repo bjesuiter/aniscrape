@@ -1,14 +1,13 @@
 import { IS_BROWSER } from "$fresh/runtime.ts";
-import { computed, signal, useComputed } from "@preact/signals";
+import { useComputed, useSignal } from "@preact/signals";
 import { useEffect } from "preact/hooks";
 import { SSEEvent } from "sse_codec";
-
-// Create the signal outside to not re-recreate it on component re-render!
-const messages = signal<SSEEvent[]>([]);
 
 export function SSEDebug() {
   if (!IS_BROWSER) return <div></div>;
 
+  const messages = useSignal<SSEEvent[]>([]);
+  
   useEffect(() => {
     const addMessage = (msg: MessageEvent<any>) => {
       const newArray = [...messages.value, {
@@ -52,7 +51,7 @@ export function SSEDebug() {
     ));
   });
 
-  const messageCount = computed(() => messages.value.length);
+  const messageCount = useComputed(() => messages.value.length);
 
   return (
     <>
