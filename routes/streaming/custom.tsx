@@ -11,6 +11,7 @@ export default async function StreamingResponseTest() {
 
   const sseStream = timer.pipeThrough(map<number, string>((chunk: number) => {
     const encodedEvent = encodeSSEEvent({
+      // TODO: Figure out why the F*** custom event names do not work at all! -_-
       // eventName: "message",
       id: crypto.randomUUID(),
       data: chunk + "",
