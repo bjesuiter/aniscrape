@@ -11,7 +11,7 @@ export default async function StreamingResponseTest() {
 
   const sseStream = timer.pipeThrough(map<number, string>((chunk: number) => {
     return encodeSSEEvent({
-      eventName: "tick",
+      // eventName: "tick",
       id: crypto.randomUUID(),
       data: chunk + "",
     });
