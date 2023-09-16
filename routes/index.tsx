@@ -88,7 +88,7 @@ export default async function Home(req: Request, ctx: RouteContext) {
 
       <hr></hr>
 
-      <SSEDebug></SSEDebug>
+      {/* <SSEDebug></SSEDebug> */}
 
       {showData && (
         <AniflixShowRender
