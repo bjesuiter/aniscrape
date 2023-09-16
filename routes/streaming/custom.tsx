@@ -10,11 +10,21 @@ export default async function StreamingResponseTest() {
   // const sseStream = new SSEStream();
 
   const sseStream = timer.pipeThrough(map<number, string>((chunk: number) => {
-    return encodeSSEEvent({
-      // eventName: "tick",
+    const encodedEvent = encodeSSEEvent({
+      // eventName: "message",
       id: crypto.randomUUID(),
       data: chunk + "",
     });
+
+    console.log(encodedEvent);
+
+    //     const encodedEvent = `event:tick
+    // id:${crypto.randomUUID()}
+    // data:${chunk + ""}
+
+    //     `;
+
+    return encodedEvent;
   }));
 
   // const promise = timer.pipeTo(simpleCallbackTarget((timerTick) => {
@@ -32,6 +42,7 @@ export default async function StreamingResponseTest() {
   return new Response(body, {
     headers: {
       "Content-Type": "text/event-stream",
+      "Cache-Control": "no-cache",
     },
   });
 }

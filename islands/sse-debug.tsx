@@ -3,44 +3,43 @@ import { computed, signal, useComputed } from "@preact/signals";
 import { useEffect } from "preact/hooks";
 import { SSEEvent } from "sse_codec";
 
-let messages = signal<SSEEvent[]>([]);
-
-// Having this SSE Setup Code outside the component
-// fixes that eventsource might be recreated at re-rendering of this component!
-if (IS_BROWSER) {
-  messages = signal<SSEEvent[]>([]);
-
-  const addMessage = (msg: MessageEvent<any>) => {
-    const newArray = [...messages.value, {
-      id: msg.lastEventId,
-      data: msg.data,
-      eventName: msg.type,
-    }];
-    messages.value = newArray;
-  };
-
-  const source = new EventSource("/streaming/custom");
-
-  source.addEventListener("open", () => console.log(`SSE Stream Opened!`));
-
-  source.addEventListener("message", (msg) => {
-    console.log(`SSE Stream received message`, msg);
-    addMessage(msg);
-  });
-
-  // source.addEventListener("tick", (msg) => {
-  //   console.log(`SSE Stream received 'tick' event`, msg);
-  //   addMessage(msg);
-  // });
-
-  source.addEventListener(
-    "error",
-    (err) => console.error(`SSE Stream had error`, err),
-  );
-}
+// Create the signal outside to not re-recreate it on component re-render!
+const messages = signal<SSEEvent[]>([]);
 
 export function SSEDebug() {
   if (!IS_BROWSER) return <div></div>;
+
+  useEffect(() => {
+    const addMessage = (msg: MessageEvent<any>) => {
+      const newArray = [...messages.value, {
+        id: msg.lastEventId,
+        data: msg.data,
+        eventName: msg.type,
+      }];
+      messages.value = newArray;
+    };
+
+    const source = new EventSource("/streaming/custom");
+
+    source.addEventListener("open", () => console.log(`SSE Stream Opened!`));
+
+    source.addEventListener("message", (msg) => {
+      console.log(`SSE Stream received message`, msg);
+      addMessage(msg);
+    });
+
+    source.addEventListener("customEvent", (msg) => {
+      console.log(`SSE Stream received 'customEvent' event`, msg);
+      addMessage(msg);
+    });
+
+    source.addEventListener(
+      "error",
+      (err) => console.error(`SSE Stream had error`, err),
+    );
+
+    return () => source.close();
+  }, []);
 
   const messageList = useComputed(() => {
     // console.debug(messages.value);
